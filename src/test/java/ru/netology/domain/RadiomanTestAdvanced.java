@@ -138,5 +138,4 @@ public class RadiomanTestAdvanced {
 
         assertEquals(0, radioman.getCurrentVolume());
     }
-
 }
