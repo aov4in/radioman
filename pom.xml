@@ -31,6 +31,9 @@
                 <version>3.0.0-M4</version>
                 <configuration>
                     <failIfNoTests>true</failIfNoTests>
+                    <includes>
+                        <include>RadiomanTestAdvanced.java</include>
+                    </includes>
                 </configuration>
             </plugin>
             <plugin>
