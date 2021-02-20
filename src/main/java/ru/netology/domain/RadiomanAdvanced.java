@@ -74,7 +74,15 @@ public class RadiomanAdvanced {
     }
 
     public void setCurrentStationNumber(int currentStationNumber) {
+        if (currentStationNumber > stationNumberMax){
+            return;
+        }
+        if (currentStationNumber < stationNumberMin){
+            return;
+        }
+
         this.currentStationNumber = currentStationNumber;
+
     }
 
     public int getCurrentVolume() {
@@ -82,6 +90,14 @@ public class RadiomanAdvanced {
     }
 
     public void setCurrentVolume(int currentVolume) {
+        if (currentVolume > maxVolume){
+            return;
+        }
+        if (currentVolume < minVolume){
+            return;
+        }
+
         this.currentVolume = currentVolume;
+        return;
     }
 }
