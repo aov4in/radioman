@@ -10,7 +10,7 @@ public class RadiomanAdvanced {
 
     public void nextStationNumber() {
         if (currentStationNumber >= stationNumberMin & currentStationNumber < stationNumberMax) {
-            this.currentStationNumber = currentStationNumber + 1;
+            this.currentStationNumber = currentStationNumber +1;
         }
 
         if (currentStationNumber == stationNumberMax | currentStationNumber < stationNumberMin) {
