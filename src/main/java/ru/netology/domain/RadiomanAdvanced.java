@@ -8,65 +8,36 @@ public class RadiomanAdvanced {
     private int stationNumberMax = 9;
     private int currentStationNumber;
 
-    public void nextStationNumber() {
-        if (currentStationNumber >= stationNumberMin & currentStationNumber < stationNumberMax) {
-            this.currentStationNumber = currentStationNumber +1;
-        }
-
-        if (currentStationNumber == stationNumberMax | currentStationNumber < stationNumberMin) {
+    public void nextStationNumber(){
+        if (currentStationNumber == stationNumberMax){
             this.currentStationNumber = stationNumberMin;
+            return;
         }
+        currentStationNumber ++;
+    }
 
-        if (currentStationNumber > stationNumberMax) {
+    public void prevStationNumber(){
+        if (currentStationNumber == stationNumberMin){
             this.currentStationNumber = stationNumberMax;
+            return;
         }
-
+        currentStationNumber --;
     }
 
-    public void prevStationNumber() {
-        if (currentStationNumber > stationNumberMin & currentStationNumber <= stationNumberMax) {
-            this.currentStationNumber = currentStationNumber - 1;
-        }
-
-        if (currentStationNumber == stationNumberMin | currentStationNumber > stationNumberMax) {
-            this.currentStationNumber = stationNumberMax;
-        }
-
-        if (currentStationNumber < stationNumberMin) {
-            this.currentStationNumber = stationNumberMin;
-        }
-
-    }
-
-
-    public void volumeUp() {
-        if (currentVolume >= minVolume & currentVolume < maxVolume) {
-            this.currentVolume = currentVolume + 1;
-        }
-
-        if (currentVolume >= maxVolume) {
-            this.currentVolume = maxVolume;
-        }
-
-        if (currentVolume < minVolume) {
+    public void volumeUp(){
+        if (currentVolume == maxVolume){
             this.currentVolume = minVolume;
+            return;
         }
-
+        currentVolume ++;
     }
 
-    public void volumeDown() {
-        if (currentVolume > minVolume & currentVolume <= maxVolume) {
-            this.currentVolume = currentVolume -1;
-        }
-
-        if (currentVolume <= minVolume) {
-            this.currentVolume = minVolume;
-        }
-
-        if (currentVolume > maxVolume) {
+    public void volumeDown(){
+        if (currentVolume == minVolume){
             this.currentVolume = maxVolume;
+            return;
         }
-
+        currentVolume --;
     }
 
     public int getCurrentStationNumber() {
@@ -75,9 +46,11 @@ public class RadiomanAdvanced {
 
     public void setCurrentStationNumber(int currentStationNumber) {
         if (currentStationNumber > stationNumberMax){
+            this.currentStationNumber = stationNumberMax;
             return;
         }
         if (currentStationNumber < stationNumberMin){
+            this.currentStationNumber = stationNumberMin;
             return;
         }
 
@@ -91,9 +64,11 @@ public class RadiomanAdvanced {
 
     public void setCurrentVolume(int currentVolume) {
         if (currentVolume > maxVolume){
+            this.currentVolume = maxVolume;
             return;
         }
         if (currentVolume < minVolume){
+            this.currentVolume = minVolume;
             return;
         }
 
