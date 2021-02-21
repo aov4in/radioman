@@ -56,7 +56,7 @@ public class RadiomanAdvanced {
 
     public void volumeDown() {
         if (currentVolume > minVolume & currentVolume <= maxVolume) {
-            this.currentVolume = currentVolume - 1;
+            this.currentVolume = currentVolume -1;
         }
 
         if (currentVolume <= minVolume) {
@@ -98,6 +98,5 @@ public class RadiomanAdvanced {
         }
 
         this.currentVolume = currentVolume;
-        return;
     }
 }

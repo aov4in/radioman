@@ -30,7 +30,7 @@ public class RadiomanTestAdvanced {
         radioman.setCurrentStationNumber(11);
         radioman.nextStationNumber();
 
-        assertEquals(9, radioman.getCurrentStationNumber());
+        assertEquals(1, radioman.getCurrentStationNumber());
 
     }
 
@@ -40,7 +40,7 @@ public class RadiomanTestAdvanced {
         radioman.setCurrentStationNumber(-1);
         radioman.nextStationNumber();
 
-        assertEquals(0, radioman.getCurrentStationNumber());
+        assertEquals(1, radioman.getCurrentStationNumber());
 
     }
 
@@ -81,7 +81,7 @@ public class RadiomanTestAdvanced {
         radioman.setCurrentStationNumber(-2);
         radioman.prevStationNumber();
 
-        assertEquals(0, radioman.getCurrentStationNumber());
+        assertEquals(9, radioman.getCurrentStationNumber());
 
     }
 
@@ -100,7 +100,7 @@ public class RadiomanTestAdvanced {
         radioman.setCurrentVolume(15);
         radioman.volumeUp();
 
-        assertEquals(10, radioman.getCurrentVolume());
+        assertEquals(1, radioman.getCurrentVolume());
     }
 
     @Test
@@ -109,7 +109,7 @@ public class RadiomanTestAdvanced {
         radioman.setCurrentVolume(-2);
         radioman.volumeUp();
 
-        assertEquals(0, radioman.getCurrentVolume());
+        assertEquals(1, radioman.getCurrentVolume());
     }
 
     @Test
@@ -124,10 +124,10 @@ public class RadiomanTestAdvanced {
     @Test
     public void shouldVolumeDown2() {
         RadiomanAdvanced radioman = new RadiomanAdvanced();
-        radioman.setCurrentVolume(11);
+        radioman.setCurrentVolume(9);
         radioman.volumeDown();
 
-        assertEquals(10, radioman.getCurrentVolume());
+        assertEquals(8, radioman.getCurrentVolume());
     }
 
     @Test
