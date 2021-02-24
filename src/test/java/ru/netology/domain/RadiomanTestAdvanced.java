@@ -100,7 +100,7 @@ public class RadiomanTestAdvanced {
         radioman.setCurrentVolume(15);
         radioman.volumeUp();
 
-        assertEquals(0, radioman.getCurrentVolume());
+        assertEquals(10, radioman.getCurrentVolume());
     }
 
     @Test
@@ -136,6 +136,6 @@ public class RadiomanTestAdvanced {
         radioman.setCurrentVolume(-1);
         radioman.volumeDown();
 
-        assertEquals(10, radioman.getCurrentVolume());
+        assertEquals(0, radioman.getCurrentVolume());
     }
 }
