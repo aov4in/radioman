@@ -140,9 +140,9 @@ public class RadiomanTestAdvanced {
 
     @Test
     public void shouldVolumeDown3() {
-        RadiomanAdvanced radioman = new RadiomanAdvanced(100, 0, 0,0,10,0);
-        radioman.setCurrentVolume(-1);
+        RadiomanAdvanced radioman = new RadiomanAdvanced(100, 0, -1,0,10,0);
         radioman.volumeDown();
+        radioman.setCurrentVolume(-1);
 
         assertEquals(0, radioman.getCurrentVolume());
     }
