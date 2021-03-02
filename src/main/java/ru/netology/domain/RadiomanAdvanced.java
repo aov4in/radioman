@@ -1,11 +1,19 @@
 package ru.netology.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+
 public class RadiomanAdvanced {
-    private int maxVolume = 10;
+    private int maxVolume = 100;
     private int minVolume = 0;
     private int currentVolume;
     private int stationNumberMin = 0;
-    private int stationNumberMax = 9;
+    private int stationNumberMax = 10;
     private int currentStationNumber;
 
     public void nextStationNumber(){
@@ -38,26 +46,18 @@ public class RadiomanAdvanced {
         currentVolume --;
     }
 
-    public int getCurrentStationNumber() {
-        return currentStationNumber;
-    }
-
     public void setCurrentStationNumber(int currentStationNumber) {
         if (currentStationNumber > stationNumberMax){
-            this.currentStationNumber = stationNumberMax;
+            this.currentStationNumber = stationNumberMin;
             return;
         }
         if (currentStationNumber < stationNumberMin){
-            this.currentStationNumber = stationNumberMin;
+            this.currentStationNumber = stationNumberMax;
             return;
         }
 
         this.currentStationNumber = currentStationNumber;
 
-    }
-
-    public int getCurrentVolume() {
-        return currentVolume;
     }
 
     public void setCurrentVolume(int currentVolume) {
@@ -72,4 +72,5 @@ public class RadiomanAdvanced {
 
         this.currentVolume = currentVolume;
     }
+
 }

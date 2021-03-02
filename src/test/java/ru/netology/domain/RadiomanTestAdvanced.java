@@ -4,10 +4,22 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class RadiomanTestAdvanced {
+
+    @Test
+    public void shouldGetStationMaxNumber() {
+        RadiomanAdvanced radioman = new RadiomanAdvanced(100, 0, 0,0,10,0);
+        assertEquals(10, radioman.getStationNumberMax());
+    }
+
+    @Test
+    public void shouldGetCurrentStationNumber(){
+        RadiomanAdvanced radioman = new RadiomanAdvanced(100,0,0,0,10, 5);
+        assertEquals(5, radioman.getCurrentStationNumber());
+    }
+
     @Test
     public void shouldNextStationNumber1() {
-        RadiomanAdvanced radioman = new RadiomanAdvanced();
-        radioman.setCurrentStationNumber(5);
+        RadiomanAdvanced radioman = new RadiomanAdvanced(100, 0, 0,0,10,5);
         radioman.nextStationNumber();
 
         assertEquals(6, radioman.getCurrentStationNumber());
@@ -16,19 +28,19 @@ public class RadiomanTestAdvanced {
 
     @Test
     public void shouldNextStationNumber2() {
-        RadiomanAdvanced radioman = new RadiomanAdvanced();
-        radioman.setCurrentStationNumber(9);
+        RadiomanAdvanced radioman = new RadiomanAdvanced(100, 0, 0,0,10,11);
         radioman.nextStationNumber();
+        radioman.setCurrentStationNumber(10);
 
-        assertEquals(0, radioman.getCurrentStationNumber());
+        assertEquals(10, radioman.getCurrentStationNumber());
 
     }
 
     @Test
     public void shouldNextStationNumber3() {
-        RadiomanAdvanced radioman = new RadiomanAdvanced();
-        radioman.setCurrentStationNumber(11);
+        RadiomanAdvanced radioman = new RadiomanAdvanced(100, 0, 0,0,10,11);
         radioman.nextStationNumber();
+        radioman.setCurrentStationNumber(15);
 
         assertEquals(0, radioman.getCurrentStationNumber());
 
@@ -36,19 +48,18 @@ public class RadiomanTestAdvanced {
 
     @Test
     public void shouldNextStationNumber4() {
-        RadiomanAdvanced radioman = new RadiomanAdvanced();
+        RadiomanAdvanced radioman = new RadiomanAdvanced(100, 0, 0,0,10,0);
         radioman.setCurrentStationNumber(-1);
         radioman.nextStationNumber();
 
-        assertEquals(1, radioman.getCurrentStationNumber());
+        assertEquals(0, radioman.getCurrentStationNumber());
 
     }
 
 
     @Test
     public void shouldPrevStationNumber1() {
-        RadiomanAdvanced radioman = new RadiomanAdvanced();
-        radioman.setCurrentStationNumber(5);
+        RadiomanAdvanced radioman = new RadiomanAdvanced(100, 0, 0,0,10,5);
         radioman.prevStationNumber();
 
         assertEquals(4, radioman.getCurrentStationNumber());
@@ -57,38 +68,36 @@ public class RadiomanTestAdvanced {
 
     @Test
     public void shouldPrevStationNumber2() {
-        RadiomanAdvanced radioman = new RadiomanAdvanced();
-        radioman.setCurrentStationNumber(0);
+        RadiomanAdvanced radioman = new RadiomanAdvanced(100, 0, 0,0,10,0);
         radioman.prevStationNumber();
 
-        assertEquals(9, radioman.getCurrentStationNumber());
+        assertEquals(10, radioman.getCurrentStationNumber());
 
     }
 
     @Test
     public void shouldPrevStationNumber3() {
-        RadiomanAdvanced radioman = new RadiomanAdvanced();
-        radioman.setCurrentStationNumber(11);
+        RadiomanAdvanced radioman = new RadiomanAdvanced(100, 0, 0,0,10,11);
         radioman.prevStationNumber();
 
-        assertEquals(8, radioman.getCurrentStationNumber());
+        assertEquals(10, radioman.getCurrentStationNumber());
 
     }
 
     @Test
     public void shouldPrevStationNumber4() {
-        RadiomanAdvanced radioman = new RadiomanAdvanced();
-        radioman.setCurrentStationNumber(-2);
+        RadiomanAdvanced radioman = new RadiomanAdvanced(100, 0, 0,0,10,0);
         radioman.prevStationNumber();
+        radioman.setCurrentStationNumber(-2);
 
-        assertEquals(9, radioman.getCurrentStationNumber());
+        assertEquals(10, radioman.getCurrentStationNumber());
 
     }
 
+
     @Test
     public void shouldVolumeUp1() {
-        RadiomanAdvanced radioman = new RadiomanAdvanced();
-        radioman.setCurrentVolume(5);
+        RadiomanAdvanced radioman = new RadiomanAdvanced(100, 0, 5,0,10,0);
         radioman.volumeUp();
 
         assertEquals(6, radioman.getCurrentVolume());
@@ -96,45 +105,44 @@ public class RadiomanTestAdvanced {
 
     @Test
     public void shouldVolumeUp2() {
-        RadiomanAdvanced radioman = new RadiomanAdvanced();
-        radioman.setCurrentVolume(15);
+        RadiomanAdvanced radioman = new RadiomanAdvanced(100, 0, 0,0,10,0);
+        radioman.setCurrentVolume(101);
         radioman.volumeUp();
 
-        assertEquals(10, radioman.getCurrentVolume());
+        assertEquals(100, radioman.getCurrentVolume());
     }
 
     @Test
     public void shouldVolumeUp3() {
-        RadiomanAdvanced radioman = new RadiomanAdvanced();
-        radioman.setCurrentVolume(-1);
+        RadiomanAdvanced radioman = new RadiomanAdvanced(100, 0, 0,0,10,0);
         radioman.volumeUp();
+        radioman.setCurrentVolume(-1);
 
-        assertEquals(1, radioman.getCurrentVolume());
+        assertEquals(0, radioman.getCurrentVolume());
     }
 
     @Test
     public void shouldVolumeDown1() {
-        RadiomanAdvanced radioman = new RadiomanAdvanced();
-        radioman.setCurrentVolume(6);
+        RadiomanAdvanced radioman = new RadiomanAdvanced(100, 0, 51,0,10,0);
         radioman.volumeDown();
 
-        assertEquals(5, radioman.getCurrentVolume());
+        assertEquals(50, radioman.getCurrentVolume());
     }
 
     @Test
     public void shouldVolumeDown2() {
-        RadiomanAdvanced radioman = new RadiomanAdvanced();
-        radioman.setCurrentVolume(9);
+        RadiomanAdvanced radioman = new RadiomanAdvanced(100, 0, 0,0,10,0);
+        radioman.setCurrentVolume(99);
         radioman.volumeDown();
 
-        assertEquals(8, radioman.getCurrentVolume());
+        assertEquals(98, radioman.getCurrentVolume());
     }
 
     @Test
     public void shouldVolumeDown3() {
-        RadiomanAdvanced radioman = new RadiomanAdvanced();
-        radioman.setCurrentVolume(-1);
+        RadiomanAdvanced radioman = new RadiomanAdvanced(100, 0, -1,0,10,0);
         radioman.volumeDown();
+        radioman.setCurrentVolume(-1);
 
         assertEquals(0, radioman.getCurrentVolume());
     }
